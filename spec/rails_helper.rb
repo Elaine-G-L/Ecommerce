@@ -1,6 +1,9 @@
 require 'spec_helper'
 require 'vcr'
+require 'simplecov'
+
 ENV['RAILS_ENV'] ||= 'test'
+
 require_relative '../config/environment'
 
 abort('The Rails environment is running in production mode!') if Rails.env.production?
@@ -31,3 +34,5 @@ VCR.configure do |config|
   config.cassette_library_dir = 'fixtures/vcr'
   config.hook_into :webmock
 end
+
+SimpleCov.start
